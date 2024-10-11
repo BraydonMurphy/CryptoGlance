@@ -1,0 +1,145 @@
+/* Global App Styles */
+.App {
+  text-align: center;
+}
+
+/* Logo */
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+/* Header with Gradient Background */
+.App-header {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  background: linear-gradient(-45deg, #1a2a6c, #b21f1f, #fdbb2d, #6dd5ed);
+  background-size: 400% 400%;
+  animation: gradientAnimation 15s ease infinite;
+  padding: 20px;
+}
+
+/* Card Container for Crypto Prices */
+.crypto-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+.crypto-card {
+  background: white;
+  color: black;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 200px;
+  text-align: left;
+  transition: transform 0.3s, box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.crypto-card img {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 10px;
+}
+
+.crypto-card h3 {
+  margin: 10px 0;
+}
+
+.crypto-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Placeholder for Price History Chart */
+.price-chart-placeholder {
+  margin-top: 40px;
+  width: 80%;
+  height: 300px;
+  border: 2px dashed rgba(255, 255, 255, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1.5rem;
+}
+
+/* Live Update Glow Animation */
+.live-update {
+  position: relative;
+}
+
+.live-update::after {
+  content: '';
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  bottom: -5px;
+  left: -5px;
+  border-radius: 15px;
+  border: 2px solid rgba(255, 215, 0, 0.8);
+  animation: glow 1.5s infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
+  }
+  to {
+    box-shadow: 0 0 20px rgba(255, 215, 0, 1);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .crypto-cards {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .crypto-card {
+    width: 90%;
+  }
+
+  .price-chart-placeholder {
+    width: 100%;
+  }
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
