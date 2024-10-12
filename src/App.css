@@ -1,128 +1,74 @@
 /* Global App Styles */
 .App {
   text-align: center;
-}
-
-/* Logo */
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-/* Header with Gradient Background */
-.App-header {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-  background: linear-gradient(-45deg, #1a2a6c, #b21f1f, #fdbb2d, #6dd5ed);
+  background: linear-gradient(-45deg, #2a3b8c, #923f3f, #e6a857, #5ba3c7); /* Subdued gradient background */
   background-size: 400% 400%;
   animation: gradientAnimation 15s ease infinite;
-  padding: 20px;
-}
-
-/* Card Container for Crypto Prices */
-.crypto-cards {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-  padding: 20px;
-}
-
-.crypto-card {
-  background: white;
-  color: black;
-  padding: 20px;
-  border-radius: 15px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 200px;
-  text-align: left;
-  transition: transform 0.3s, box-shadow 0.3s;
+  min-height: 100vh; /* Ensure it covers full viewport */
   display: flex;
   flex-direction: column;
-  align-items: center;
-}
-
-.crypto-card img {
-  width: 40px;
-  height: 40px;
-  margin-bottom: 10px;
-}
-
-.crypto-card h3 {
-  margin: 10px 0;
-}
-
-.crypto-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-}
-
-/* Placeholder for Price History Chart */
-.price-chart-placeholder {
-  margin-top: 40px;
-  width: 80%;
-  height: 300px;
-  border: 2px dashed rgba(255, 255, 255, 0.5);
-  display: flex;
   justify-content: center;
   align-items: center;
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 1.5rem;
 }
 
-/* Live Update Glow Animation */
-.live-update {
-  position: relative;
+/* Fix for the header text */
+.App-header h1 {
+  font-family: 'Lora', serif; /* Professional Lora font */
+  font-size: 4rem; /* Larger font size for emphasis */
+  font-weight: 700; /* Bold weight */
+  
+  /* Remove background gradient and use solid color */
+  color: #ffa500; /* Strong orange color */
+  
+  margin: 0;
+  padding: 10px;
+  
+  /* Stronger text shadow for clear, glowing effect */
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7), 
+               0px 0px 10px rgba(255, 165, 0, 1),  
+               0px 0px 20px rgba(255, 140, 0, 0.9),
+               0px 0px 30px rgba(255, 69, 0, 0.8);  
+
+  /* Add glow animation (optional) */
+  animation: textGlow 2s infinite alternate ease-in-out;
 }
 
-.live-update::after {
-  content: '';
-  position: absolute;
-  top: -5px;
-  right: -5px;
-  bottom: -5px;
-  left: -5px;
-  border-radius: 15px;
-  border: 2px solid rgba(255, 215, 0, 0.8);
-  animation: glow 1.5s infinite alternate;
-}
-
-@keyframes glow {
+/* Adjusted Glow Animation */
+@keyframes textGlow {
   from {
-    box-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
+    text-shadow: 2px 2px 10px rgba(255, 165, 0, 0.7), 0px 0px 15px rgba(255, 165, 0, 0.9);
   }
   to {
-    box-shadow: 0 0 20px rgba(255, 215, 0, 1);
+    text-shadow: 2px 2px 20px rgba(255, 140, 0, 1), 0px 0px 30px rgba(255, 69, 0, 1);
   }
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-  .crypto-cards {
-    flex-direction: column;
-    gap: 15px;
+@keyframes textGlow {
+  from {
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5), 0px 0px 10px rgba(201, 196, 187, 0.356);
   }
-
-  .crypto-card {
-    width: 90%;
-  }
-
-  .price-chart-placeholder {
-    width: 100%;
+  to {
+    text-shadow: 0px 0px 30px rgba(255, 255, 255, 1), 0px 0px 40px rgba(255, 165, 0, 1);
   }
 }
 
+@keyframes colorChange {
+  0% { color: #ff9a9e; }
+  50% { color: #fad0c4; }
+  100% { color: #ff9a9e; }
+}
+
+/* Glow animation for Welcome text */
+@keyframes textGlow {
+  from {
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5), 0 0 15px rgba(255, 255, 255, 0.3);
+  }
+  to {
+    text-shadow: 2px 2px 20px rgba(0, 0, 0, 0.8), 0 0 25px rgba(255, 255, 255, 0.8);
+  }
+}
+
+/* Gradient Animation for Background */
 @keyframes gradientAnimation {
   0% {
     background-position: 0% 50%;
@@ -135,11 +81,103 @@
   }
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Chart Styling */
+.chart-wrapper {
+  width: 90%;
+  margin: 0 auto;
+  height: 400px;
+  padding: 20px;
+}
+
+/* Input field styling */
+.fiat-input {
+  margin-top: 20px;
+}
+
+.fiat-input input {
+  padding: 15px;
+  border-radius: 10px;
+  border: 2px solid #ffa500;
+  font-size: 2rem;
+  text-align: center;
+  width: 250px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  background-color: white;
+  color: black;
+  margin-top: 10px;
+}
+
+.fiat-input input:focus {
+  outline: none;
+  border-color: #ffdd57;
+  box-shadow: 0 6px 12px rgba(255, 165, 0, 0.6);
+}
+
+/* Remove up-down arrows from number input */
+.fiat-input input::-webkit-outer-spin-button,
+.fiat-input input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.fiat-input input[type='number'] {
+  -moz-appearance: textfield;  /* Firefox-specific */
+  appearance: textfield;       /* Standard property for other browsers */
+}
+
+.fiat-input h3 {
+  margin-top: 20px;
+  color: white;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+/* Number Pad */
+.number-pad {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.display {
+  background-color: #fff;
+  padding: 10px;
+  margin-bottom: 10px;
+  width: 200px;
+  text-align: center;
+  font-size: 1.5rem;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 buttons per row */
+  grid-gap: 10px;
+}
+
+.buttons button {
+  padding: 15px;
+  font-size: 1.2rem;
+  background-color: #ffcc00;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+.buttons button:hover {
+  background-color: #ffa500;
+}
+
+.buttons button:active {
+  background-color: #ff9900;
+}
+
+/* Make the Enter button span two columns */
+.enter-btn {
+  grid-column: span 2;
 }

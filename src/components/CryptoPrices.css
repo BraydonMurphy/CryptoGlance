@@ -1,62 +1,68 @@
-/* Crypto Cards Container */
-.crypto-cards {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    padding: 20px;
+/* General scaling of text */
+body {
+  font-size: 1rem; /* You can adjust this base size */
+}
+
+.crypto-card {
+  background-color: rgba(255, 255, 255, 0.589); /* Semi-transparent card */
+  color: black;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+  flex: 1 1 calc(33% - 40px); /* Allows 3 cards per row with spacing */
+  min-width: 200px; /* Minimum size for the cards */
+  max-width: 300px; /* Maximum size to keep them manageable */
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1rem; /* Make text responsive */
+}
+
+.crypto-card img {
+  width: 8vw; /* Use a responsive unit for the image width */
+  height: 8vw; /* Responsive height */
+  max-width: 40px; /* Limit the max size */
+  max-height: 40px; /* Limit the max height */
+  margin-bottom: 10px;
+}
+
+.crypto-card h3 {
+  margin: px 0;
+  font-size: 1.2rem; /* Responsive title size */
+}
+
+.crypto-card p {
+  font-size: 1rem; /* Adjust price font size */
+}
+
+/* Responsive design for different screen sizes */
+@media (max-width: 768px) {
+  .crypto-cards {
+    flex-direction: column; /* Stack cards vertically on small screens */
+    gap: 15px;
   }
-  
-  /* Individual Crypto Card */
+
   .crypto-card {
-    background: white;
-    color: black;
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 200px;
-    text-align: center;
-    transition: transform 0.3s, box-shadow 0.3s;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    width: 90%; /* Cards take up more width on small screens */
+    font-size: 0.9rem; /* Slightly smaller text for smaller screens */
   }
-  
-  .crypto-card img.crypto-icon {
-    width: 40px;
-    height: 40px;
-    margin-bottom: 10px;
+
+  .crypto-card img {
+    width: 30px; /* Smaller images for smaller screens */
+    height: 30px;
   }
-  
-  /* Hover Effect for Cards */
-  .crypto-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-  }
-  
-  /* Live Update Glow Effect */
-  .live-update {
-    position: relative;
-  }
-  
-  .live-update::after {
-    content: '';
-    position: absolute;
-    top: -5px;
-    right: -5px;
-    bottom: -5px;
-    left: -5px;
-    border-radius: 15px;
-    border: 2px solid rgba(255, 215, 0, 0.8);
-    animation: glow 1.5s infinite alternate;
-  }
-  
-  @keyframes glow {
-    from {
-      box-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
-    }
-    to {
-      box-shadow: 0 0 20px rgba(255, 215, 0, 1);
-    }
-  }
-  
+}
+
+.price-chart-placeholder {
+  margin-top: 40px;
+  width: 80%;
+  height: 300px;
+  border: 2px dashed rgba(255, 255, 255, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1.5rem; /* Responsive font size */
+}
