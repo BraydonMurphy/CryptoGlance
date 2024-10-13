@@ -1,35 +1,48 @@
 /* Global App Styles */
-.App {
-  text-align: center;
-  background: linear-gradient(-45deg, #2a3b8c, #923f3f, #e6a857, #5ba3c7); /* Subdued gradient background */
-  background-size: 400% 400%;
-  animation: gradientAnimation 15s ease infinite;
-  min-height: 100vh; /* Ensure it covers full viewport */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+
+@keyframes gradientAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
-/* Fix for the header text */
+.App {
+  text-align: center;
+  background: linear-gradient(-45deg, #1a2a6c, #b21f1f, #fdbb2d, #6dd5ed);
+  background-size: 400% 400%;
+  animation: gradientAnimation 15s ease infinite;
+  min-height: 100vh;
+  width: 100%;
+  overflow: hidden; /* Prevent any overflow causing a box effect */
+  margin: 0;
+  padding: 0; 
+  box-sizing: border-box;
+  color: white; 
+}
+
+.App-header {
+  min-height: 100vh;
+  display: block; /* Change from flex to block to remove any unnecessary layout constraints */
+  width: 100%;
+  padding: 0; /* Remove padding to prevent boxed look */
+  margin: 0;
+  font-size: calc(10px + 2vmin);
+  color: rgb(255, 255, 255);
+  text-align: center; /* Keep everything centered without flex */
+}
+
 .App-header h1 {
-  font-family: 'Lora', serif; /* Professional Lora font */
-  font-size: 4rem; /* Larger font size for emphasis */
-  font-weight: 700; /* Bold weight */
-  
-  /* Remove background gradient and use solid color */
-  color: #ffa500; /* Strong orange color */
-  
+  font-family: 'Lora', serif; 
+  font-size: 4rem; 
+  font-weight: 800; 
+  color: #ffffff; 
   margin: 0;
   padding: 10px;
-  
-  /* Stronger text shadow for clear, glowing effect */
+
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7), 
                0px 0px 10px rgba(255, 165, 0, 1),  
                0px 0px 20px rgba(255, 140, 0, 0.9),
                0px 0px 30px rgba(255, 69, 0, 0.8);  
-
-  /* Add glow animation (optional) */
   animation: textGlow 2s infinite alternate ease-in-out;
 }
 
@@ -43,47 +56,9 @@
   }
 }
 
-@keyframes textGlow {
-  from {
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5), 0px 0px 10px rgba(201, 196, 187, 0.356);
-  }
-  to {
-    text-shadow: 0px 0px 30px rgba(255, 255, 255, 1), 0px 0px 40px rgba(255, 165, 0, 1);
-  }
-}
-
-@keyframes colorChange {
-  0% { color: #ff9a9e; }
-  50% { color: #fad0c4; }
-  100% { color: #ff9a9e; }
-}
-
-/* Glow animation for Welcome text */
-@keyframes textGlow {
-  from {
-    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5), 0 0 15px rgba(255, 255, 255, 0.3);
-  }
-  to {
-    text-shadow: 2px 2px 20px rgba(0, 0, 0, 0.8), 0 0 25px rgba(255, 255, 255, 0.8);
-  }
-}
-
-/* Gradient Animation for Background */
-@keyframes gradientAnimation {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
 /* Chart Styling */
 .chart-wrapper {
-  width: 90%;
+  width: 100%;
   margin: 0 auto;
   height: 400px;
   padding: 20px;
@@ -122,8 +97,8 @@
 }
 
 .fiat-input input[type='number'] {
-  -moz-appearance: textfield;  /* Firefox-specific */
-  appearance: textfield;       /* Standard property for other browsers */
+  -moz-appearance: textfield;
+  appearance: textfield;
 }
 
 .fiat-input h3 {
@@ -154,7 +129,7 @@
 
 .buttons {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 buttons per row */
+  grid-template-columns: repeat(3, 1fr);
   grid-gap: 10px;
 }
 
